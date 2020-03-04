@@ -19,7 +19,7 @@ class UsersController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display users index page with all users.
      *
      * @return \Illuminate\Http\Response
      */
@@ -30,7 +30,7 @@ class UsersController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show user creation form.
      *
      * @return \Illuminate\Http\Response
      */
@@ -40,7 +40,7 @@ class UsersController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Create new user.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -81,7 +81,7 @@ class UsersController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Edit selected user profile.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -93,7 +93,7 @@ class UsersController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update selected user profile.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -123,7 +123,7 @@ class UsersController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Check if user is admin, if true reload page, if  false delete user
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -131,7 +131,12 @@ class UsersController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
-        $user->delete();
-        return redirect()->route('admin.all-users');
+        
+        if ($user->is_admin) {
+            return redirect()->route('admin.all-users');
+        } else {
+            $user->delete();
+            return redirect()->route('admin.all-users');
+        } 
     }
 }

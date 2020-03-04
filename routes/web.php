@@ -25,6 +25,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::name('admin.')->prefix('admin')->group(function () {
     //Dashboard
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+
+    //Brands
+    Route::get('brands/all', 'BrandsController@index')->name('all-brands'); 
+    Route::get('brands/new', 'BrandsController@create')->name('add-car-brand'); 
     
     //Users
     Route::get('users/all', 'UsersController@index')->name('all-users');

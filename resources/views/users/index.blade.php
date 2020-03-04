@@ -8,7 +8,7 @@
             <h1>Manage Users</h1>
         </div>
         <div class="col-sm-6">
-          @if ((Auth::user()->role == 'admin'))
+          @if ((Auth::user()->is_admin))
             <a href="{{ route('admin.create-users') }}"><button type="button" class="btn btn-success float-right">Create New User</button></a>
         @endif
         </div>
@@ -25,7 +25,7 @@
               <th>Name</th>
               <th>Email</th>
               <th>Created at</th>
-                <th>Actions</th>
+              <th>Actions</th>
               <th>Role</th>
             </tr>
             </thead>
@@ -37,7 +37,7 @@
                   <td>{{$user->created_at}}</td>
                   <td>
                     <a href=""><button type="button" class="btn btn-success btn-sm">View Profile</button></a>  
-                    @if (Auth::user()->role == 'admin')
+                    @if (Auth::user()->is_admin)
                         <a href="{{ route('admin.edit-user', $user['id']) }}"><button type="button" class="btn btn-info btn-sm">Update</button></a>                    
                         <button type="submit" form="delete-form" class="btn btn-danger btn-sm">Delete</button>
                         <form method="post" action="{{ route('admin.delete-user', $user['id']) }}" id="delete-form">
@@ -45,8 +45,9 @@
                         @csrf
                         </form>                  
                     @endif
-                  </td>                  
-                  <td>{{ucfirst($user->role)}}</td>
+                  </td> 
+                  <!-- Izbaciti role iz tablice ako ce ovo biti koristeno, treba li role biti u tablici? -->                   
+                  <td>{{ucfirst($user->is_admin ? 'Admin' : 'User')}}</td>
               </tr>
              @endforeach
             </tbody>

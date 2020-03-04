@@ -85,7 +85,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="{{ url('/admin/brands/all') }}" class="nav-link">
               <i class="nav-icon fa fa-users"></i>
               <p>Brands</p>
             </a>
@@ -116,6 +116,12 @@
           <li class="nav-item">
             <a href="" class="nav-link">
               <i class="nav-icon fa fa-users"></i>
+              <p>Customers</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link">
+              <i class="nav-icon fa fa-users"></i>
               <p>Manage Reservations</p>
             </a>
           </li>
@@ -138,10 +144,10 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2018 <a href="http://adminlte.io">LaraApp</a>.</strong>
+    <strong>Copyright &copy; 2014-2018 | LuxRent</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.0.0-alpha
+      <b>Version</b> 1.0.0
     </div>
   </footer>
 
