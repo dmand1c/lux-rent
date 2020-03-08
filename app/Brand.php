@@ -39,17 +39,4 @@ class Brand extends Model
     {
         return $this->hasMany('App\Vehicle');
     }
-
-    // Get all brands
-    public function scopegetAllBrands() {
-        
-        $selectQuery = 'brands.*, count(vehicles.brand_id) as vehicle_count';
-
-        return DB::table('brands')
-            ->selectRaw($selectQuery)
-            ->join('vehicles', 'vehicles.brand_id', '=', 'brands.brand_id', 'inner')
-            ->groupBy('brands.brand_id', 'brands.brand_name')
-            ->get();
-    }
-
 }

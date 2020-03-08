@@ -3,17 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\BrandRepositoryInterface;
 use App\Brand;
 
 class BrandsController extends Controller
 {
+    private $brandRepository;
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(BrandRepositoryInterface $brandRepository)
     {
+        $this->brandRepository = $brandRepository;
+
         $this->middleware('auth');
     }
 
@@ -24,7 +29,7 @@ class BrandsController extends Controller
      */
     public function index()
     {   
-        $brands = Brand::getAllBrands();
+        $brands = $this->brandRepository->getAllBrands();
 
         return view('brands.index')->with('brands', $brands);
     }
