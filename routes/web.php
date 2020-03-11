@@ -29,6 +29,10 @@ Route::name('admin.')->prefix('admin')->group(function () {
     //Brands
     Route::get('brands/all', 'BrandsController@index')->name('all-brands'); 
     Route::get('brands/new', 'BrandsController@create')->name('add-car-brand'); 
+
+    //Vehicles
+    Route::get('vehicles/all', 'VehicleController@index')->name('all-vehicles'); 
+    Route::get('vehicles/new', 'VehicleController@create')->name('add-vehicle'); 
     
     //Users
     Route::get('users/all', 'UsersController@index')->name('all-users');
