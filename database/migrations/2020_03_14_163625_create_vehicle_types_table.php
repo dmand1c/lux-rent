@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddIsAdminToUsersTable extends Migration
+class CreateVehicleTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class AddIsAdminToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->boolean('is_admin')->nullable();
+        Schema::create('vehicle_types', function (Blueprint $table) {
+            $table->string('vtype_id')->unique();
+            $table->primary('vtype_id');
+            $table->string('description');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class AddIsAdminToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('is_admin');
-        });
+        Schema::dropIfExists('vehicle_types');
     }
 }
