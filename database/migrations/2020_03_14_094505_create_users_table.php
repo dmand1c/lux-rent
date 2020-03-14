@@ -20,11 +20,11 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('role');
+            $table->string('is_admin');
             $table->rememberToken();
             $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
