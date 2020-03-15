@@ -14,8 +14,7 @@ class CreateInventoryTable extends Migration
     public function up()
     {
         Schema::create('inventory', function (Blueprint $table) {
-            $table->string('inv_id')->unique();
-            $table->primary('inv_id');
+            $table->increments('inv_id');
             $table->string('status');
             $table->date('date_added');
             $table->timestamps();
