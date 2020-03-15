@@ -64,7 +64,9 @@ class VehicleController extends Controller
      */
     public function show($id)
     {
-        //
+        $vehicle = $this->vehicleRepository->getVehicleById($id);
+
+        return view('vehicles.vehicle_detailed')->with('vehicle', $vehicle[0]);
     }
 
     /**

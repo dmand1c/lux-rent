@@ -12,8 +12,8 @@ class Vehicle extends Model
      * @var array
      */
     protected $fillable = [
-        'vehicle_id', 'brand_id', 'vtype_id', 'inventory_id', 'title', 'chassis_nr', 'transmission', 'fuel', 'power', 'mileage',
-        'nr_doors', 'nr_seats', 'production_year', 'driving_licence_requirement', 'loading_space', 'registration_plates', 'registration_expriration_date',
+        'vehicle_id', 'brand_id', 'vtype_id', 'inv_id', 'title', 'chassis_nr', 'category', 'transmission', 'fuel', 'power', 'mileage',
+        'nr_doors', 'nr_seats', 'production_year', 'driving_licence', 'loading_space', 'registration_plates', 'registration_expiration_date',
     ];
 
     /**

@@ -33,6 +33,7 @@ Route::name('admin.')->prefix('admin')->group(function () {
     //Vehicles
     Route::get('vehicles/all', 'VehicleController@index')->name('all-vehicles'); 
     Route::get('vehicles/new', 'VehicleController@create')->name('add-vehicle'); 
+    Route::get('vehicles/view/{id}', 'VehicleController@show')->name('show-vehicle'); 
     
     //Users
     Route::get('users/all', 'UsersController@index')->name('all-users');
