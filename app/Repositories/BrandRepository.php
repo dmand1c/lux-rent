@@ -17,7 +17,7 @@ class BrandRepository implements BrandRepositoryInterface
             ->selectRaw($selectQuery)
             ->orderBy('brands.brand_name', 'ASC')
             ->join('vehicles', 'vehicles.brand_id', '=', 'brands.brand_id', 'inner')
-            ->groupBy('brands.brand_id', 'brands.brand_name')
+            ->groupBy('brands.brand_id', 'brands.brand_name', 'brands.created_at', 'brands.updated_at')
             ->get();
     }
 }
