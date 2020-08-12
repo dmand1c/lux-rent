@@ -22,7 +22,8 @@
             <tr>
               <th>Brand name</th>
               <th>Country</th>
-              <th>Nr. of cars</th>
+              <th>Number of cars</th>
+              <th>Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -31,6 +32,10 @@
                 <td>{{$brand->brand_name}}</td>
                 <td>Germany</td>
                 <td>{{$brand->vehicle_count}}</td>
+                <td>
+                  <a href="{{ route('admin.add-vehicle') }}"><button type="button" class="btn btn-primary btn-sm">Detailed View</button></a>
+                  <a href=""><button type="button" class="btn btn-primary btn-sm">Edit</button></a>
+                </td>
               </tr>
              @endforeach
             </tbody>
