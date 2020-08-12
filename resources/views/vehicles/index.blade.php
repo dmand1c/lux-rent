@@ -27,7 +27,6 @@
               <th>Brand</th>
               <th>Category</th>
               <th>Vehicle Status</th>
-              <th>Availabity</th>
               <th>Actions</th>
             </tr>
             </thead>
@@ -38,8 +37,17 @@
                   <td>{{$vehicle->registration_plates}}</td>
                   <td>{{$vehicle->brand_name}}</td>
                   <td>{{ucfirst($vehicle->category)}}</td>
-                  <td>Rented</td>
-                  <td>Available</td>
+                  <td>
+                    @if ($vehicle->status == 'Available')
+                      Available
+                    @elseif ($vehicle->status == 'Rented')
+                      Rented
+                    @elseif ($vehicle->status == 'Reserved')
+                    Reserved
+                    @else
+                    
+                    @endif
+                  </td>
                   <td>
                     <a href="{{ route('admin.add-vehicle') }}"><button type="button" class="btn btn-primary btn-sm">Detailed View</button></a>
                     <a href=""><button type="button" class="btn btn-primary btn-sm">Edit</button></a>
