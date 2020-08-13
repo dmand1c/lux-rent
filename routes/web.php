@@ -32,7 +32,10 @@ Route::name('admin.')->prefix('admin')->group(function () {
 
     //Vehicles
     Route::get('vehicles/all', 'VehicleController@index')->name('all-vehicles'); 
-    Route::get('vehicles/new', 'VehicleController@create')->name('add-vehicle'); 
+    Route::get('vehicles/new', 'VehicleController@create')->name('add-vehicle');
+
+    //Reservations
+    Route::get('reservations/all', 'ReservationsController@index')->name('all-reservations'); 
     
     //Users
     Route::get('users/all', 'UsersController@index')->name('all-users');
