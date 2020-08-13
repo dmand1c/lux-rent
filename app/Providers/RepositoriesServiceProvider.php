@@ -6,6 +6,8 @@ use App\Repositories\VehicleRepository;
 use App\Repositories\VehicleRepositoryInterface;
 use App\Repositories\BrandRepository;
 use App\Repositories\BrandRepositoryInterface;
+use App\Repositories\ReservationsRepository;
+use App\Repositories\ReservationsRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoriesServiceProvider extends ServiceProvider
@@ -29,5 +31,6 @@ class RepositoriesServiceProvider extends ServiceProvider
     {
         $this->app->bind(BrandRepositoryInterface::class, BrandRepository::class);
         $this->app->bind(VehicleRepositoryInterface::class, VehicleRepository::class);
+        $this->app->bind(ReservationsRepositoryInterface::class, ReservationsRepository::class);
     }
 }

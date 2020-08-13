@@ -102,7 +102,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="{{ url('/admin/reservations/all') }}" class="nav-link">
               <i class="nav-icon fa fa-address-book"></i>
               <p>Manage Reservations</p>
             </a>
